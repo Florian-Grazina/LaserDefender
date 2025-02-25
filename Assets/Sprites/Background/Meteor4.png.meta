@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Meteor4_0: 6116775287609799266
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
