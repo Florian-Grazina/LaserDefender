@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     protected void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
-        Debug.Log("Move: " + rawInput);
     }
     #endregion
 
