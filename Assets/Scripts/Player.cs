@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private Vector2 minBound;
     private Vector2 maxBound;
 
+    private float paddingTop;
+    private float paddingRight;
+
+    #region unity methods
     protected void Start()
     {
         InitBounds();
@@ -19,14 +23,32 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    void InitBounds()
+    protected void OnMove(InputValue value)
     {
+        rawInput = value.Get<Vector2>();
+        Debug.Log("Move: " + rawInput);
+    }
+    #endregion
+
+    #region private methods
+    private void InitBounds()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        paddingTop = spriteRenderer.bounds.size.y / 2;
+        paddingRight = spriteRenderer.bounds.size.x / 2;
+
         Camera mainCamera = Camera.main;
         minBound = mainCamera.ViewportToWorldPoint(Vector2.zero);
         maxBound = mainCamera.ViewportToWorldPoint(Vector2.one);
+
+        minBound.x += paddingRight;
+        minBound.y += paddingTop;
+
+        maxBound.x -= paddingRight;
+        maxBound.y -= paddingTop;
     }
 
-    protected void Move()
+    private void Move()
     {
         Vector2 delta = speed * Time.deltaTime * rawInput;
 
@@ -38,10 +60,5 @@ public class Player : MonoBehaviour
 
         transform.position = newPos;
     }
-
-    protected void OnMove(InputValue value)
-    {
-        rawInput = value.Get<Vector2>();
-        Debug.Log("Move: " + rawInput);
-    }
+    #endregion
 }

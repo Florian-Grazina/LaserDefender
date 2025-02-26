@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6482505855521350868}
   - component: {fileID: 2997225580431963031}
   - component: {fileID: 1434057760267863129}
+  - component: {fileID: 562975463897660100}
   m_Layer: 0
   m_Name: Babouino
   m_TagString: Untagged
@@ -30,8 +31,7 @@ Transform:
   m_LocalPosition: {x: -0.26168332, y: 0.04226114, z: -0.05762555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4313252073513678723}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2997225580431963031
@@ -76,45 +76,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a4cbe01a387a248a01caf5ed747955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6306941699220441818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4313252073513678723}
-  - component: {fileID: 7316321592856639752}
-  m_Layer: 0
-  m_Name: 2_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4313252073513678723
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6306941699220441818}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26168332, y: -0.04226114, z: 0.05762555}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6482505855521350868}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7316321592856639752
+  speed: 10
+--- !u!212 &562975463897660100
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6306941699220441818}
+  m_GameObject: {fileID: 5880087339595745349}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
