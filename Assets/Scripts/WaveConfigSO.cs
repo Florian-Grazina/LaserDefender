@@ -11,7 +11,7 @@ public class WaveConfigSO : ScriptableObject
 
     public Transform GetStartingWaypoint() => pathPrefab.GetChild(0);
 
-    public IEnumerable<Transform> GetWaypoints() => pathPrefab.Cast<Transform>().Select(x => x);
+    public List<Transform> GetWaypoints() => pathPrefab.Cast<Transform>().Select(x => x).ToList();
 
     public float GetMoveSpeed() => moveSpeed;
 }
