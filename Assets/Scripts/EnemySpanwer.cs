@@ -7,9 +7,9 @@ public class EnemySpanwer : MonoBehaviour
     [Header("Wave")]
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] float timeBetweenWaves = 0f;
-    [SerializeField] private WaveConfigSO currentWave;
+    private WaveConfigSO currentWave;
 
-    private bool isLooping;
+    [SerializeField] private bool isLooping;
 
     protected void Start()
     {
