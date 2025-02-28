@@ -13,9 +13,12 @@ public class EnemySpanwer : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        Instantiate(currentWave.GetEnemyPrefab(0),
+        for (int i = 0; i < currentWave.GetWaveSize(); i++)
+        {
+            Instantiate(currentWave.GetEnemyPrefab(),
                     currentWave.GetStartingWaypoint().position,
-                    Quaternion.identity);
-
+                    Quaternion.identity,
+                    transform);
+        }
     }
 }

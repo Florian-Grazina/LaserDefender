@@ -6,15 +6,16 @@ using System.Linq;
 [CreateAssetMenu(menuName = "Wave Config", fileName = "New Wave Config")]
 public class WaveConfigSO : ScriptableObject
 {
-    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private GameObject enemyPrefabs;
     [SerializeField] private Transform pathPrefab;
+    [SerializeField] private int waveSize = 5;
     [SerializeField] private float moveSpeed = 5f;
 
 
     #region public methods
-    public int GetNumberOfEnemies() => enemyPrefabs.Count;
+    public GameObject GetEnemyPrefab() => enemyPrefabs;
 
-    public GameObject GetEnemyPrefab(int index) => enemyPrefabs[index];
+    public int GetWaveSize() => waveSize;
 
     public Transform GetStartingWaypoint() => pathPrefab.GetChild(0);
 
