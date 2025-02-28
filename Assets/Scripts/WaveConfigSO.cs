@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -6,10 +5,17 @@ using System.Linq;
 [CreateAssetMenu(menuName = "Wave Config", fileName = "New Wave Config")]
 public class WaveConfigSO : ScriptableObject
 {
-    [SerializeField] private GameObject enemyPrefabs;
+    [Header("Path")]
     [SerializeField] private Transform pathPrefab;
+
+    [Space(10)]
+    [Header("Enemy")]
     [SerializeField] private int waveSize = 5;
+    [SerializeField] private GameObject enemyPrefabs;
     [SerializeField] private float moveSpeed = 5f;
+    
+    [Space(10)]
+    [Header("Spawn")]
     [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private float spawnTimeVariance = 0.5f;
     [SerializeField] private float minimumSpawnTime = 0.2f;

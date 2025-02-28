@@ -1,18 +1,34 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpanwer : MonoBehaviour
 {
-    [SerializeField] private WaveConfigSO currentWave;
+    [Header("Wave")]
+    [SerializeField] List<WaveConfigSO> waveConfigs;
+    [SerializeField] float timeBetweenWaves = 0f;
+    private WaveConfigSO currentWave;
 
     protected void Start()
     {
-        SpawnEnemies();
+
+        StartCoroutine(StartNextWave());
     }
 
     public WaveConfigSO GetCurrentWave() => currentWave;
 
     #region spwan logic
+    private IEnumerator StartNextWave()
+    {
+        foreach(WaveConfigSO waveConfig in waveConfigs)
+        {
+            currentWave = waveConfig;
+            yield return StartCoroutine(SpawnEnemies());
+            yield return new WaitForSeconds(timeBetweenWaves);
+        }
+    }
+
     private IEnumerator SpawnEnemies()
     {
         for (int i = 0; i < currentWave.GetWaveSize(); i++)
