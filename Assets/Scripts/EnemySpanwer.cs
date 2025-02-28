@@ -9,6 +9,8 @@ public class EnemySpanwer : MonoBehaviour
         SpawnEnemies();
     }
 
+    public WaveConfigSO GetCurrentWave() => currentWave;
+
     private void SpawnEnemies()
     {
         Instantiate(currentWave.GetEnemyPrefab(0),
