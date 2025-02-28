@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region private methods
+    #region
     private void InitBounds()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

@@ -27,7 +27,7 @@ public class Pathfinder : MonoBehaviour
     }
     #endregion
 
-    #region private methods
+    #region pathfinder logic
     private void FollowPath()
     {
         if (waypointIndex < waypoints.Count)

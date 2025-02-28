@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpanwer : MonoBehaviour
@@ -11,14 +12,18 @@ public class EnemySpanwer : MonoBehaviour
 
     public WaveConfigSO GetCurrentWave() => currentWave;
 
-    private void SpawnEnemies()
+    #region spwan logic
+    private IEnumerator SpawnEnemies()
     {
         for (int i = 0; i < currentWave.GetWaveSize(); i++)
         {
             Instantiate(currentWave.GetEnemyPrefab(),
-                    currentWave.GetStartingWaypoint().position,
-                    Quaternion.identity,
-                    transform);
+                        currentWave.GetStartingWaypoint().position,
+                        Quaternion.identity,
+                        transform);
+
+            yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
         }
     }
+    #endregion
 }
