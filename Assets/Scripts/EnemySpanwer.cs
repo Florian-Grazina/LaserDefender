@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +7,12 @@ public class EnemySpanwer : MonoBehaviour
     [Header("Wave")]
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] float timeBetweenWaves = 0f;
-    private WaveConfigSO currentWave;
+    [SerializeField] private WaveConfigSO currentWave;
+
+    private bool isLooping;
 
     protected void Start()
     {
-
         StartCoroutine(StartNextWave());
     }
 
@@ -21,12 +21,16 @@ public class EnemySpanwer : MonoBehaviour
     #region spwan logic
     private IEnumerator StartNextWave()
     {
-        foreach(WaveConfigSO waveConfig in waveConfigs)
+        do
         {
-            currentWave = waveConfig;
-            yield return StartCoroutine(SpawnEnemies());
-            yield return new WaitForSeconds(timeBetweenWaves);
+            foreach(WaveConfigSO waveConfig in waveConfigs)
+            {
+                currentWave = waveConfig;
+                yield return StartCoroutine(SpawnEnemies());
+                yield return new WaitForSeconds(timeBetweenWaves);
+            }
         }
+        while (isLooping);
     }
 
     private IEnumerator SpawnEnemies()
