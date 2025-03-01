@@ -35,29 +35,29 @@ public class EnemySpanwer : MonoBehaviour
 
     private IEnumerator SpawnEnemies()
     {
+        var wayPoints = currentWave.GetWaypoints();
+        var mirroredWayPoints = currentWave.GetWaypoints(true);
+
         for (int i = 0; i < currentWave.GetWaveSize(); i++)
         {
-            GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(),
-                                            currentWave.GetStartingWaypoint(),
-                                            Quaternion.identity,
-                                            transform);
-
-            Pathfinder pathfinder = enemy.GetComponent<Pathfinder>();
-            pathfinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), currentWave.GetWaypoints());
+            SpawnEnemy(wayPoints);
 
             if (currentWave.GetIsMirroredWave())
-            {
-                Instantiate(currentWave.GetEnemyPrefab(),
-                            currentWave.GetStartingWaypoint(true),
-                            Quaternion.identity,
-                            transform);
-
-                pathfinder = enemy.GetComponent<Pathfinder>();
-                pathfinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), currentWave.GetWaypoints(true));
-            }
+                SpawnEnemy(mirroredWayPoints);
 
             yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
         }
+    }
+
+    private void SpawnEnemy(List<Vector2> wayPoints)
+    {
+        GameObject mirroredEnemy = Instantiate(currentWave.GetEnemyPrefab(),
+                                                      wayPoints[0],
+                                                      Quaternion.identity,
+                                                      transform);
+
+        Pathfinder mirroredPath = mirroredEnemy.GetComponent<Pathfinder>();
+        mirroredPath.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints);
     }
     #endregion
 }

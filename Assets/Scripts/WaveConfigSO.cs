@@ -26,13 +26,6 @@ public class WaveConfigSO : ScriptableObject
 
     public int GetWaveSize() => waveSize;
 
-    public Vector2 GetStartingWaypoint(bool isMirrored = false)
-    {
-        if(isMirrored)
-            return GetWaypoints()[0];
-        return GetWaypoints()[0];
-    }
-
     public List<Vector2> GetWaypoints(bool isMirrored = false)
     {
         var waypoints = pathPrefab.Cast<Transform>()
@@ -42,6 +35,7 @@ public class WaveConfigSO : ScriptableObject
         if (isMirrored)
         {
             waypoints = waypoints.Select(wp => new Vector2(-wp.x, wp.y)).ToList();
+            Debug.Log("Mirrored");
             Debug.Log(waypoints.Count);
         }
 
