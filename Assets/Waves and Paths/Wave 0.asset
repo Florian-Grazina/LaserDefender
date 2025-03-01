@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wave 0
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 6733553414070638663, guid: d07f491d6f513ef48bd175405c4050e4, type: 3}
+  isMirroredWave: 1
   waveSize: 6
   enemyPrefabs: {fileID: 2707871905368741601, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
   moveSpeed: 5

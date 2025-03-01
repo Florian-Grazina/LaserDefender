@@ -3,22 +3,17 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    EnemySpanwer enemySpanwer;
-    private WaveConfigSO waveConfigSO;
     private List<Transform> waypoints;
     private int waypointIndex = 0;
+    private float moveSpeed;
 
     #region unity methods
     protected void Awake()
     {
-        enemySpanwer = FindFirstObjectByType<EnemySpanwer>();
     }
 
     protected void Start()
     {
-        waveConfigSO = enemySpanwer.GetCurrentWave();
-        waypoints = waveConfigSO.GetWaypoints();
-        transform.position = waypoints[0].position;
     }
 
     protected void Update()
@@ -28,12 +23,19 @@ public class Pathfinder : MonoBehaviour
     #endregion
 
     #region pathfinder logic
+    public void SetPathFindingSettings(float speed, List<Transform> listWayPoints)
+    {
+        moveSpeed = speed;
+        waypoints = listWayPoints;
+        transform.position = waypoints[0].position;
+    }
+
     private void FollowPath()
     {
         if (waypointIndex < waypoints.Count)
         {
             Vector3 targetPosition = waypoints[waypointIndex].position;
-            float deltaMovement = waveConfigSO.GetMoveSpeed() * Time.deltaTime;
+            float deltaMovement = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, deltaMovement);
 
             if (transform.position == targetPosition)

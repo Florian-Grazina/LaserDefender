@@ -23,7 +23,7 @@ public class EnemySpanwer : MonoBehaviour
     {
         do
         {
-            foreach(WaveConfigSO waveConfig in waveConfigs)
+            foreach (WaveConfigSO waveConfig in waveConfigs)
             {
                 currentWave = waveConfig;
                 yield return StartCoroutine(SpawnEnemies());
@@ -37,10 +37,24 @@ public class EnemySpanwer : MonoBehaviour
     {
         for (int i = 0; i < currentWave.GetWaveSize(); i++)
         {
-            Instantiate(currentWave.GetEnemyPrefab(),
-                        currentWave.GetStartingWaypoint().position,
-                        Quaternion.identity,
-                        transform);
+            GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(),
+                                            currentWave.GetStartingWaypoint().position,
+                                            Quaternion.identity,
+                                            transform);
+
+            Pathfinder pathfinder = enemy.GetComponent<Pathfinder>();
+            pathfinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), currentWave.GetWaypoints());
+
+            if (currentWave.GetIsMirroredWave())
+            {
+                Instantiate(currentWave.GetEnemyPrefab(),
+                            currentWave.GetStartingWaypoint(true).position,
+                            Quaternion.identity,
+                            transform);
+
+                pathfinder = enemy.GetComponent<Pathfinder>();
+                pathfinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), currentWave.GetWaypoints(true));
+            }
 
             yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
         }

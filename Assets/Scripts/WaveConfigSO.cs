@@ -7,13 +7,14 @@ public class WaveConfigSO : ScriptableObject
 {
     [Header("Path")]
     [SerializeField] private Transform pathPrefab;
+    [SerializeField] private bool isMirroredWave;
 
     [Space(10)]
     [Header("Enemy")]
     [SerializeField] private int waveSize = 5;
     [SerializeField] private GameObject enemyPrefabs;
     [SerializeField] private float moveSpeed = 5f;
-    
+
     [Space(10)]
     [Header("Spawn")]
     [SerializeField] private float spawnInterval = 1f;
@@ -25,11 +26,34 @@ public class WaveConfigSO : ScriptableObject
 
     public int GetWaveSize() => waveSize;
 
-    public Transform GetStartingWaypoint() => pathPrefab.GetChild(0);
+    public Transform GetStartingWaypoint(bool isMirrored = false)
+    {
+        if(isMirrored)
+            return GetWaypoints()[0];
+        return GetWaypoints()[0];
+    }
 
-    public List<Transform> GetWaypoints() => pathPrefab.Cast<Transform>().Select(x => x).ToList();
+    public List<Transform> GetWaypoints(bool isMirrored = false)
+    {
+        var waypoints = pathPrefab.Cast<Transform>().ToList();
+
+        if (!isMirrored)
+            return waypoints;
+
+        var mirroredWaypoints = new List<Transform>();
+        foreach (var waypoint in waypoints)
+        {
+            GameObject dummy = new ("MirroredWaypoint");
+            dummy.transform.position = new Vector3(-waypoint.position.x, waypoint.position.y, waypoint.position.z);
+            mirroredWaypoints.Add(dummy.transform);
+        }
+
+        return mirroredWaypoints;
+    }
 
     public float GetMoveSpeed() => moveSpeed;
+
+    public bool GetIsMirroredWave() => isMirroredWave;
     #endregion
 
     public float GetRandomSpawnTime()
