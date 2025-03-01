@@ -26,29 +26,26 @@ public class WaveConfigSO : ScriptableObject
 
     public int GetWaveSize() => waveSize;
 
-    public Transform GetStartingWaypoint(bool isMirrored = false)
+    public Vector2 GetStartingWaypoint(bool isMirrored = false)
     {
         if(isMirrored)
             return GetWaypoints()[0];
         return GetWaypoints()[0];
     }
 
-    public List<Transform> GetWaypoints(bool isMirrored = false)
+    public List<Vector2> GetWaypoints(bool isMirrored = false)
     {
-        var waypoints = pathPrefab.Cast<Transform>().ToList();
+        var waypoints = pathPrefab.Cast<Transform>()
+                                  .Select(waypoint => (Vector2)waypoint.position)
+                                  .ToList();
 
-        if (!isMirrored)
-            return waypoints;
-
-        var mirroredWaypoints = new List<Transform>();
-        foreach (var waypoint in waypoints)
+        if (isMirrored)
         {
-            GameObject dummy = new ("MirroredWaypoint");
-            dummy.transform.position = new Vector3(-waypoint.position.x, waypoint.position.y, waypoint.position.z);
-            mirroredWaypoints.Add(dummy.transform);
+            waypoints = waypoints.Select(wp => new Vector2(-wp.x, wp.y)).ToList();
+            Debug.Log(waypoints.Count);
         }
 
-        return mirroredWaypoints;
+        return waypoints;
     }
 
     public float GetMoveSpeed() => moveSpeed;

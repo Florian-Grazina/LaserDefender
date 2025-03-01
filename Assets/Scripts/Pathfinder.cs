@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    private List<Transform> waypoints;
+    private List<Vector2> waypoints;
     private int waypointIndex = 0;
     private float moveSpeed;
 
@@ -23,18 +23,18 @@ public class Pathfinder : MonoBehaviour
     #endregion
 
     #region pathfinder logic
-    public void SetPathFindingSettings(float speed, List<Transform> listWayPoints)
+    public void SetPathFindingSettings(float speed, List<Vector2> listWayPoints)
     {
         moveSpeed = speed;
         waypoints = listWayPoints;
-        transform.position = waypoints[0].position;
+        transform.position = waypoints[0];
     }
 
     private void FollowPath()
     {
         if (waypointIndex < waypoints.Count)
         {
-            Vector3 targetPosition = waypoints[waypointIndex].position;
+            Vector3 targetPosition = waypoints[waypointIndex];
             float deltaMovement = moveSpeed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, deltaMovement);
 

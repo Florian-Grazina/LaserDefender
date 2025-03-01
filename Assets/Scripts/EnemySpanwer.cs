@@ -38,7 +38,7 @@ public class EnemySpanwer : MonoBehaviour
         for (int i = 0; i < currentWave.GetWaveSize(); i++)
         {
             GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(),
-                                            currentWave.GetStartingWaypoint().position,
+                                            currentWave.GetStartingWaypoint(),
                                             Quaternion.identity,
                                             transform);
 
@@ -48,7 +48,7 @@ public class EnemySpanwer : MonoBehaviour
             if (currentWave.GetIsMirroredWave())
             {
                 Instantiate(currentWave.GetEnemyPrefab(),
-                            currentWave.GetStartingWaypoint(true).position,
+                            currentWave.GetStartingWaypoint(true),
                             Quaternion.identity,
                             transform);
 
