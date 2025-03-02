@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7600411003807885517}
   - component: {fileID: 4612056126093667984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: jelly_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

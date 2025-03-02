@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7300356823342703767}
   - component: {fileID: -6847203630974354242}
   - component: {fileID: 4298864572345014261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Babouino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7260575999156360676}
   - component: {fileID: 6198942137699080357}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
