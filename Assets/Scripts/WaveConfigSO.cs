@@ -33,11 +33,7 @@ public class WaveConfigSO : ScriptableObject
                                   .ToList();
 
         if (isMirrored)
-        {
             waypoints = waypoints.Select(wp => new Vector2(-wp.x, wp.y)).ToList();
-            Debug.Log("Mirrored");
-            Debug.Log(waypoints.Count);
-        }
 
         return waypoints;
     }

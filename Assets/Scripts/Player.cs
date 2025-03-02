@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     #region
     private void InitBounds()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         paddingTop = spriteRenderer.bounds.size.y / 2;
         paddingRight = spriteRenderer.bounds.size.x / 2;
 
