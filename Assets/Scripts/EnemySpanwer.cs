@@ -43,7 +43,10 @@ public class EnemySpanwer : MonoBehaviour
             SpawnEnemy(wayPoints);
 
             if (currentWave.GetIsMirroredWave())
+            {
+                yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
                 SpawnEnemy(mirroredWayPoints);
+            }
 
             yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
         }
