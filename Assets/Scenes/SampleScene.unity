@@ -507,64 +507,6 @@ Transform:
   - {fileID: 484383629}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1932697135
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.6201309
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.88217854
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441778399741611164, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707871905368741601, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-      propertyPath: m_Name
-      value: Jelly
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3629862041160358566, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b1f70afd87ef27e4b99ae2be987657c8, type: 3}
 --- !u!1001 &4734302579564674437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,6 +515,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8245848992817406173, guid: c1b9cdb816faf5245be73d6ba3ac0c66, type: 3}
     - target: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: m_Name
       value: Babouino
@@ -620,32 +566,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4734302579564674439}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1581092d541dda49af240b143e326aa, type: 3}
---- !u!1 &4734302579564674438 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
-  m_PrefabInstance: {fileID: 4734302579564674437}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4734302579564674439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734302579564674438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d992e26b7f2945049a95e4be034ae5bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 10
-  projectileLifeTime: 5
-  isFiring: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -655,4 +577,3 @@ SceneRoots:
   - {fileID: 1672203816}
   - {fileID: 4734302579564674437}
   - {fileID: 540279055}
-  - {fileID: 1932697135}
