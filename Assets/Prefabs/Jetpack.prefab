@@ -98,7 +98,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0025603771, y: 0.06657031}
+  m_Offset: {x: 0.0025603771, y: -0.06}
   m_Size: {x: 0.5358455, y: 0.62106127}
   m_Direction: 0
 --- !u!114 &228143775343905851
@@ -130,7 +130,7 @@ MonoBehaviour:
   listCannons: []
   projectileSpeed: 10
   projectileLifeTime: 5
-  firingRate: 0.5
+  firingRate: 0.05
   useAI: 1
   IsFiring: 0
 --- !u!114 &-8944569575880862132
@@ -170,13 +170,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6796158581036971833}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8927847790980389125}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &3126294201026554345
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class EnemySpanwer : MonoBehaviour
     {
         GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(),
                                        wayPoints[0],
-                                       Quaternion.identity,
+                                       Quaternion.Euler(0,0,180),
                                        transform);
 
         Pathfinder pathFinder = enemy.GetComponent<Pathfinder>();

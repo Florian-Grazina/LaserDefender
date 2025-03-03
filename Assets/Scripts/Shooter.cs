@@ -54,7 +54,7 @@ public class Shooter : MonoBehaviour
 
             GameObject projectile = Instantiate(projectilePrefab, cannonTransform.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = Vector2.up * projectileSpeed;
+            rb.linearVelocity = transform.up * projectileSpeed;
 
             cannonIndex = (cannonIndex + 1) % listCannons.Length;
 
