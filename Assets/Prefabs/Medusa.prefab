@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342869883472579022}
-  - component: {fileID: 381919923553778562}
   - component: {fileID: -7084343248295318920}
   - component: {fileID: -6319739522596101148}
   - component: {fileID: 8631991178625751373}
   - component: {fileID: 3787782579576726636}
+  - component: {fileID: 381919923553778562}
   m_Layer: 6
   m_Name: Medusa
   m_TagString: Untagged
@@ -37,18 +37,6 @@ Transform:
   - {fileID: 4219810389472804602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &381919923553778562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109173445194506218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eda6eb48f6a5a5c42b21432cc99ab367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-7084343248295318920
 Rigidbody2D:
   serializedVersion: 5
@@ -139,6 +127,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &381919923553778562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109173445194506218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda6eb48f6a5a5c42b21432cc99ab367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4416565785483723527
 GameObject:
   m_ObjectHideFlags: 0

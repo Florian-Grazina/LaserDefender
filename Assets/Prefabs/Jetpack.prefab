@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8537210964140545944}
   - component: {fileID: 228143775343905851}
   - component: {fileID: 120480523372392867}
+  - component: {fileID: -8944569575880862132}
   m_Layer: 6
   m_Name: Jetpack
   m_TagString: Untagged
@@ -125,12 +126,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d992e26b7f2945049a95e4be034ae5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 8245848992817406173, guid: 2594f4bfe83212840bfaffd70193274f, type: 3}
   listCannons: []
   projectileSpeed: 10
   projectileLifeTime: 5
   firingRate: 0.5
+  useAI: 1
   IsFiring: 0
+--- !u!114 &-8944569575880862132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272620473137717378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda6eb48f6a5a5c42b21432cc99ab367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6796158581036971833
 GameObject:
   m_ObjectHideFlags: 0

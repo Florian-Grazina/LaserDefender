@@ -58,12 +58,6 @@ public class EnemySpanwer : MonoBehaviour
 
         Pathfinder pathFinder = enemy.GetComponent<Pathfinder>();
         pathFinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints);
-
-        if(enemy == null)
-            Debug.LogError("Enemy prefab is null");
-
-        if (pathFinder == null)
-            Debug.LogError("Pathfinder component is null");
     }
     #endregion
 }

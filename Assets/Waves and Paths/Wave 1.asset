@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8edb061bf20ef54783b79a87f1f5d29, type: 3}
   m_Name: Wave 1
   m_EditorClassIdentifier: 
-  pathPrefab: {fileID: 60079239508789626, guid: 53e1ee9ba8fd7694295ae23720a5c502, type: 3}
-  waveSize: 5
-  enemyPrefabs: {fileID: 2109173445194506218, guid: e17169a18fcb54e409152d12423dcc85, type: 3}
-  moveSpeed: 3
-  spawnInterval: 1
+  pathPrefab: {fileID: 6733553414070638663, guid: bd1f6a3a29c94de4682b26cacbf20686, type: 3}
+  isMirroredWave: 0
+  waveSize: 10
+  enemyPrefabs: {fileID: 1272620473137717378, guid: 3222bc47a9f2b7743a659e1dde58d477, type: 3}
+  moveSpeed: 4
+  spawnInterval: 0.3
   spawnTimeVariance: 0
   minimumSpawnTime: 0
