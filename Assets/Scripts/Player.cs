@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
     {
         rawInput = value.Get<Vector2>();
     }
+
+    protected void OnAttack(InputValue value)
+    {
+
+    }
     #endregion
 
     #region
