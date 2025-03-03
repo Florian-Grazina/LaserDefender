@@ -12,7 +12,14 @@ public class Player : MonoBehaviour
     private float paddingTop;
     private float paddingRight;
 
+    private Shooter myShooter;
+
     #region unity methods
+    protected void Awake()
+    {
+        myShooter = GetComponent<Shooter>();
+    }
+
     protected void Start()
     {
         InitBounds();
@@ -30,7 +37,10 @@ public class Player : MonoBehaviour
 
     protected void OnAttack(InputValue value)
     {
-
+        if(myShooter != null)
+        {
+            myShooter.IsFiring = value.isPressed;
+        }
     }
     #endregion
 

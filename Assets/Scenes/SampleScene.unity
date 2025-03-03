@@ -620,8 +620,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4734302579564674439}
   m_SourcePrefab: {fileID: 100100000, guid: d1581092d541dda49af240b143e326aa, type: 3}
+--- !u!1 &4734302579564674438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
+  m_PrefabInstance: {fileID: 4734302579564674437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4734302579564674439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734302579564674438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d992e26b7f2945049a95e4be034ae5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 10
+  projectileLifeTime: 5
+  isFiring: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

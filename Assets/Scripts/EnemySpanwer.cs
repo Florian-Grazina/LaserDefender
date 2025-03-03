@@ -51,13 +51,13 @@ public class EnemySpanwer : MonoBehaviour
 
     private void SpawnEnemy(List<Vector2> wayPoints)
     {
-        GameObject mirroredEnemy = Instantiate(currentWave.GetEnemyPrefab(),
-                                                      wayPoints[0],
-                                                      Quaternion.identity,
-                                                      transform);
+        GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(),
+                                       wayPoints[0],
+                                       Quaternion.identity,
+                                       transform);
 
-        Pathfinder mirroredPath = mirroredEnemy.GetComponent<Pathfinder>();
-        mirroredPath.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints);
+        Pathfinder pathFinder = enemy.GetComponent<Pathfinder>();
+        pathFinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints);
     }
     #endregion
 }
