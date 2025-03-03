@@ -16,7 +16,8 @@ public class Shooter : MonoBehaviour
     #region unity methods
     protected void Awake()
     {
-        listCannons = GetComponentsInChildren<Transform>();
+        if (listCannons.Length == 0)
+            listCannons =  new Transform[] { GetComponent<Transform>() };
     }
 
     protected void Start()

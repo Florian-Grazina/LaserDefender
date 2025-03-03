@@ -209,7 +209,7 @@ MonoBehaviour:
   - {fileID: 4699797703756307926}
   projectileSpeed: 10
   projectileLifeTime: 2
-  firingRate: 0.5
+  firingRate: 0.15
   IsFiring: 0
 --- !u!1 &6907024369099570372
 GameObject:
