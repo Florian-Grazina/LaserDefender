@@ -4,14 +4,21 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform[] listCannons;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifeTime = 5f;
-    [SerializeField] float fireRate = 0.5f;
+    [SerializeField] float firingRate = 0.5f;
 
     private Coroutine firingCoroutine;
+    private int cannonIndex = 0;
     public bool IsFiring;
 
     #region unity methods
+    protected void Awake()
+    {
+        listCannons = GetComponentsInChildren<Transform>();
+    }
+
     protected void Start()
     {
         
@@ -25,27 +32,33 @@ public class Shooter : MonoBehaviour
 
     private void Fire()
     {
-        if(IsFiring)
+        if(IsFiring && firingCoroutine == null)
         {
             firingCoroutine = StartCoroutine(FireContinuously());
         }
-        else
+        else if(!IsFiring && firingCoroutine != null)
         {
-            if(firingCoroutine != null)
-                StopCoroutine(firingCoroutine);
+            StopCoroutine(firingCoroutine);
+            firingCoroutine = null;
         }
     }
 
     private IEnumerator FireContinuously()
     {
-        if (IsFiring)
+        while (true)
         {
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            Transform cannonTransform = listCannons[cannonIndex];
+
+            GameObject projectile = Instantiate(projectilePrefab, cannonTransform.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.linearVelocity = Vector2.up * projectileSpeed;
-            Destroy(projectile, projectileLifeTime);
 
-            yield return new WaitForSeconds(fireRate);
+            cannonIndex = (cannonIndex + 1) % listCannons.Length;
+
+            Debug.Log(cannonIndex);
+
+            Destroy(projectile, projectileLifeTime);
+            yield return new WaitForSeconds(firingRate);
         }
     }
 }
