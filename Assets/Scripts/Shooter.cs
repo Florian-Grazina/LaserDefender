@@ -3,16 +3,25 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("Transform Settings")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform[] listCannons;
+
+    [Space(10)]
+    [Header("Projectile Settings")]
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifeTime = 5f;
-    [SerializeField] float firingRate = 0.5f;
+    [SerializeField] float baseFiringRate = 0.5f;
+
+    [Space(10)]
+    [Header("AI Settings")]
     [SerializeField] bool useAI;
+    [SerializeField] float firingRateVariace = 0f;
+    [SerializeField] float minimumFiringRate = 0.1f;
 
     private Coroutine firingCoroutine;
-    private int cannonIndex = 0;
-    public bool IsFiring;
+    [HideInInspector] private int cannonIndex = 0;
+    [HideInInspector] public bool IsFiring;
 
     #region unity methods
     protected void Awake()
@@ -57,11 +66,12 @@ public class Shooter : MonoBehaviour
             rb.linearVelocity = transform.up * projectileSpeed;
 
             cannonIndex = (cannonIndex + 1) % listCannons.Length;
-
-            Debug.Log(cannonIndex);
-
             Destroy(projectile, projectileLifeTime);
-            yield return new WaitForSeconds(firingRate);
+
+            float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
+            timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
+
+            yield return new WaitForSeconds(timeToWait);
         }
     }
 }

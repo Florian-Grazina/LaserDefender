@@ -130,7 +130,9 @@ MonoBehaviour:
   listCannons: []
   projectileSpeed: 10
   projectileLifeTime: 5
-  firingRate: 0.05
+  baseFiringRate: 1
+  firingRateVariace: 0.5
+  minimumFiringRate: 0.1
   useAI: 1
   IsFiring: 0
 --- !u!114 &-8944569575880862132
