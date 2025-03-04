@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,15 +19,21 @@ public class PoolManager : MonoBehaviour
         return returnObject;
     }
 
-    private void DestroyDestroyPrefab(GameObject destroyObject)
+    public void DestroyDestroyPrefab(GameObject destroyObject, float delay)
     {
-        destroyObject.SetActive(false);
-        destroyAvailableObjects.Add(destroyObject);
+        StartCoroutine(DelayDestroy(destroyObject, delay));
     }
 
     private void CreateDestroyFrefab()
     {
         GameObject newObject = Instantiate(destroyPrefab);
         destroyAvailableObjects.Add(newObject);
+    }
+
+    private IEnumerator DelayDestroy(GameObject destroyObject, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        destroyObject.SetActive(false);
+        destroyAvailableObjects.Add(destroyObject);
     }
 }

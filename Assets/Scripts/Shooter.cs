@@ -9,6 +9,7 @@ public class Shooter : MonoBehaviour
 
     [Space(10)]
     [Header("Projectile Settings")]
+    private PoolManager poolManager;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifeTime = 5f;
     [SerializeField] float baseFiringRate = 0.5f;
