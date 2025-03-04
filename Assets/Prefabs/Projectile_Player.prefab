@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5384779480045795153}
   - component: {fileID: 5623497251133841376}
   - component: {fileID: 1094375234573165938}
+  - component: {fileID: 280441753296536522}
   - component: {fileID: 6359519166938382539}
   m_Layer: 7
   m_Name: Projectile_Player
@@ -99,6 +100,28 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00071412325, y: 0.009945389}
   m_Size: {x: 0.17606467, y: 0.2544868}
   m_Direction: 0
+--- !u!95 &280441753296536522
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245848992817406173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afc637579ec8a944fa21872227f231c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6359519166938382539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  animator: {fileID: 0}
+  destroyDelay: 0.5
 --- !u!1 &8690396509951921025
 GameObject:
   m_ObjectHideFlags: 0
