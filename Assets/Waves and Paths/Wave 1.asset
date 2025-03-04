@@ -16,7 +16,7 @@ MonoBehaviour:
   isMirroredWave: 0
   waveSize: 10
   enemyPrefabs: {fileID: 1272620473137717378, guid: 3222bc47a9f2b7743a659e1dde58d477, type: 3}
-  moveSpeed: 4
+  moveSpeed: 3
   spawnInterval: 0.3
   spawnTimeVariance: 0
   minimumSpawnTime: 0

@@ -372,7 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378f2b8a2e0e48409217d88138fbac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs: []
+  waveConfigs:
+  - {fileID: 11400000, guid: 4a18a56c0cfc4f346b367de1a5206f74, type: 2}
+  - {fileID: 11400000, guid: 04256203c10afc1429df65b20f3460ce, type: 2}
   timeBetweenWaves: 0
   isLooping: 0
 --- !u!4 &540279055
@@ -603,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 641896236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0488, y: 3.5699, z: 0}
+  m_LocalPosition: {x: -7.99, y: 2.46, z: 0}
   m_LocalScale: {x: 5.6825, y: 1.5403, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -709,6 +711,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: firingRate
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: baseFiringRate
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
