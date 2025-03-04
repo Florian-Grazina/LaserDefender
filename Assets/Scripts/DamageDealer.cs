@@ -3,13 +3,14 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
-    [SerializeField] private GameObject destroyEffectPrefab;
 
     public int GetDamage() => damage;
 
     public void Hit()
     {
-        Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+        GameObject destroyPrefab = FindFirstObjectByType<PoolManager>().GetNewDestroyPrefab();
+        destroyPrefab.transform.position = transform.position;
+
         Destroy(gameObject);
     }
 }
