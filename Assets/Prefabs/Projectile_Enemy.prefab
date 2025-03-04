@@ -222,4 +222,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  destroyDelay: 0.5
+  destroyEffectPrefab: {fileID: 4531777349900473112, guid: ac55b4f370cbe664eae920c592d722bb, type: 3}
