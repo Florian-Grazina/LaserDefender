@@ -14,7 +14,7 @@ public class DamageDealer : MonoBehaviour
 
     public void Hit()
     {
-        GameObject destroyPrefab = FindFirstObjectByType<PoolManager>().GetNewDestroyPrefab();
+        GameObject destroyPrefab = DamageAnimationPoolManager.Instance.GetNewDamagePrefab();
         destroyPrefab.transform.position = transform.position;
 
         DestroyOrPool();
