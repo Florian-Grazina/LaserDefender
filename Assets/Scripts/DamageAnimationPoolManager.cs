@@ -12,7 +12,12 @@ public class DamageAnimationPoolManager : MonoBehaviour
 
     protected void Awake()
     {
-        Debug.Log("awak");
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
 
         for (int i = 0; i < poolSize; i++)
             CreateDamagePrefab();
