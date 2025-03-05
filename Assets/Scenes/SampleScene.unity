@@ -372,9 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378f2b8a2e0e48409217d88138fbac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs:
-  - {fileID: 11400000, guid: 4a18a56c0cfc4f346b367de1a5206f74, type: 2}
-  - {fileID: 11400000, guid: 04256203c10afc1429df65b20f3460ce, type: 2}
+  waveConfigs: []
   timeBetweenWaves: 0
   isLooping: 0
 --- !u!4 &540279055
@@ -709,18 +707,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
-      propertyPath: firingRate
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
-      propertyPath: baseFiringRate
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 388566410945534780, guid: d1581092d541dda49af240b143e326aa, type: 3}
-      propertyPath: projectileSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: m_Name
       value: Babouino

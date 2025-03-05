@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
 
     [Space(10)]
     [Header("Projectile Settings")]
-    private PoolManager poolManager;
+    private BulletPoolManager bulletPoolManager;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifeTime = 5f;
     [SerializeField] float baseFiringRate = 0.5f;
@@ -27,6 +27,8 @@ public class Shooter : MonoBehaviour
     #region unity methods
     protected void Awake()
     {
+        bulletPoolManager = FindFirstObjectByType<PoolManager>();
+
         if (listCannons.Length == 0)
             listCannons =  new Transform[] { GetComponent<Transform>() };
     }
@@ -62,7 +64,12 @@ public class Shooter : MonoBehaviour
         {
             Transform cannonTransform = listCannons[cannonIndex];
 
+
+
             GameObject projectile = Instantiate(projectilePrefab, cannonTransform.position, Quaternion.identity);
+            GameObject proj = bulletPoolManager.Get
+
+
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.linearVelocity = transform.up * projectileSpeed;
 

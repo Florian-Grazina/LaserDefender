@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1434057760267863129}
   - component: {fileID: 4298864572345014261}
   - component: {fileID: 388566410945534780}
+  - component: {fileID: 1540849547986714769}
   m_Layer: 7
   m_Name: Babouino
   m_TagString: Untagged
@@ -209,8 +210,25 @@ MonoBehaviour:
   - {fileID: 4699797703756307926}
   projectileSpeed: 10
   projectileLifeTime: 2
-  firingRate: 0.15
+  baseFiringRate: 0.15
+  useAI: 0
+  firingRateVariace: 0
+  minimumFiringRate: 0.1
   IsFiring: 0
+--- !u!114 &1540849547986714769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880087339595745349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94829b45dc32dda4ebccaa5e0b23c24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolSize: 20
+  bulletPrefab: {fileID: 8245848992817406173, guid: c1b9cdb816faf5245be73d6ba3ac0c66, type: 3}
 --- !u!1 &6907024369099570372
 GameObject:
   m_ObjectHideFlags: 0
