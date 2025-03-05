@@ -11,7 +11,6 @@ public class Shooter : MonoBehaviour
     [Header("Projectile Settings")]
     private BulletPoolManager bulletPoolManager;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileLifeTime = 5f;
     [SerializeField] float baseFiringRate = 0.5f;
 
     [Space(10)]
@@ -27,7 +26,7 @@ public class Shooter : MonoBehaviour
     #region unity methods
     protected void Awake()
     {
-        bulletPoolManager = FindFirstObjectByType<PoolManager>();
+        bulletPoolManager = GetComponent<BulletPoolManager>();
 
         if (listCannons.Length == 0)
             listCannons =  new Transform[] { GetComponent<Transform>() };
@@ -64,22 +63,26 @@ public class Shooter : MonoBehaviour
         {
             Transform cannonTransform = listCannons[cannonIndex];
 
-
-
-            GameObject projectile = Instantiate(projectilePrefab, cannonTransform.position, Quaternion.identity);
-            GameObject proj = bulletPoolManager.Get
-
+            GameObject projectile = GetBulletPrefab();
+            projectile.transform.position = cannonTransform.position;
 
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.linearVelocity = transform.up * projectileSpeed;
 
             cannonIndex = (cannonIndex + 1) % listCannons.Length;
-            Destroy(projectile, projectileLifeTime);
 
             float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
             timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
 
             yield return new WaitForSeconds(timeToWait);
         }
+    }
+
+    private GameObject GetBulletPrefab()
+    {
+        if(bulletPoolManager != null)
+            return bulletPoolManager.GetNewBulletPrefab();
+        else
+            return Instantiate(projectilePrefab);
     }
 }
