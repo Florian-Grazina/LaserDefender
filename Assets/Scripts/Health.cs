@@ -9,6 +9,12 @@ public class Health : MonoBehaviour
     {
         if (collision.TryGetComponent(out DamageDealer damageDealer))
         {
+            if (isUnkillable)
+            {
+                damageDealer.DestroyOrPool();
+                return;
+            }
+
             damageDealer.Hit();
             TakeDamage(damageDealer.GetDamage());
         }
@@ -16,9 +22,6 @@ public class Health : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        if(isUnkillable)
-            return;
-
         health -= damage;
         if (health <= 0)
             Destroy(gameObject);

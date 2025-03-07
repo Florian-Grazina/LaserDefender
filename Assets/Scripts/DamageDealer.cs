@@ -33,7 +33,7 @@ public class DamageDealer : MonoBehaviour
         DestroyOrPool();
     }
 
-    private void DestroyOrPool()
+    public void DestroyOrPool()
     {
         if(poolManager != null)
             poolManager.DestroyBulletPrefab(gameObject);
