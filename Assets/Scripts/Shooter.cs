@@ -12,12 +12,13 @@ public class Shooter : MonoBehaviour
     private BulletPoolManager bulletPoolManager;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float baseFiringRate = 0.5f;
+    [SerializeField] float minimumFiringRate = 0.05f;
 
     [Space(10)]
     [Header("AI Settings")]
     [SerializeField] bool useAI;
     [SerializeField] float firingRateVariace = 0f;
-    [SerializeField] float minimumFiringRate = 0.1f;
+    [SerializeField] float firingRange = 0f;
 
     private Coroutine firingCoroutine;
     [HideInInspector] private int cannonIndex = 0;

@@ -3,7 +3,20 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
+    [SerializeField] private float maxDistance = 10f;
     private BulletPoolManager poolManager;
+    private Vector2 startPosition;
+
+    protected void Awake()
+    {
+        startPosition = transform.position;
+    }
+
+    protected void Update()
+    {
+        if(Vector2.Distance(startPosition, transform.position) > maxDistance)
+            DestroyOrPool();
+    }
 
     public int GetDamage() => damage;
 
