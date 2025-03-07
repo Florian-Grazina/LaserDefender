@@ -372,7 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378f2b8a2e0e48409217d88138fbac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs: []
+  waveConfigs:
+  - {fileID: 11400000, guid: 4a18a56c0cfc4f346b367de1a5206f74, type: 2}
+  - {fileID: 11400000, guid: 04256203c10afc1429df65b20f3460ce, type: 2}
   timeBetweenWaves: 0
   isLooping: 0
 --- !u!4 &540279055
@@ -603,8 +605,8 @@ Transform:
   m_GameObject: {fileID: 641896236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.99, y: 2.46, z: 0}
-  m_LocalScale: {x: 5.6825, y: 1.5403, z: 1}
+  m_LocalPosition: {x: -16.67, y: 6.87, z: 0}
+  m_LocalScale: {x: 18.176706, y: 1.6491992, z: 1.0707}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -622,6 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3480
+  isUnkillable: 1
 --- !u!1 &1315639221
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +636,7 @@ GameObject:
   - component: {fileID: 1315639223}
   - component: {fileID: 1315639222}
   m_Layer: 0
-  m_Name: PoolManager
+  m_Name: DamagePoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,7 +654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e59841992ca0b0489c494fe1e9b1c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyPrefab: {fileID: 4531777349900473112, guid: ac55b4f370cbe664eae920c592d722bb, type: 3}
+  poolSize: 10
+  damageAnimationPrefab: {fileID: 4531777349900473112, guid: ac55b4f370cbe664eae920c592d722bb, type: 3}
 --- !u!4 &1315639223
 Transform:
   m_ObjectHideFlags: 0
