@@ -521,7 +521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378f2b8a2e0e48409217d88138fbac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs: []
+  waveConfigs:
+  - {fileID: 11400000, guid: 4a18a56c0cfc4f346b367de1a5206f74, type: 2}
+  - {fileID: 11400000, guid: 04256203c10afc1429df65b20f3460ce, type: 2}
   timeBetweenWaves: 0
   isLooping: 0
 --- !u!4 &540279055
@@ -1192,16 +1194,48 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: UVModule.cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 7.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 19.54
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176132898295541744, guid: d1581092d541dda49af240b143e326aa, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5880087339595745349, guid: d1581092d541dda49af240b143e326aa, type: 3}
       propertyPath: m_Name
