@@ -11,9 +11,11 @@ public class LazernatorShooter : MonoBehaviour
 
     [Space(10)]
     [Header("Projectile Settings")]
-    [SerializeField] float baseFiringRate = 2f;
+    [SerializeField] float baseFiringRate = 5f;
     [SerializeField] float minimumFiringRate = 0.05f;
     [SerializeField] float firingRateVariace = 0f;
+    [SerializeField] float laserGrowthSpeed = 10f;
+    [SerializeField] float maxLaserLength = 5f;
 
     private Coroutine firingCoroutine;
     [HideInInspector] public bool IsFiring;
@@ -48,6 +50,17 @@ public class LazernatorShooter : MonoBehaviour
 
             GameObject projectileMain = Instantiate(projectilePrefab, mainCanon.transform.position, Quaternion.Euler(0,0,180));
             projectileMain.transform.SetParent(transform);
+
+            SpriteRenderer projectileSprite = projectileMain.GetComponentInChildren<SpriteRenderer>();
+            projectileSprite.size = new Vector2(1f, 0);
+
+            float currentLength = 0f;
+            while (currentLength < maxLaserLength)
+            {
+                currentLength += laserGrowthSpeed * Time.deltaTime;
+                projectileSprite.size = new Vector2(1f, currentLength);
+                yield return null;
+            }
 
             float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
             timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
