@@ -57,7 +57,7 @@ public class EnemySpanwer : MonoBehaviour
                                        transform);
 
         Pathfinder pathFinder = enemy.GetComponent<Pathfinder>();
-        pathFinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints);
+        pathFinder.SetPathFindingSettings(currentWave.GetMoveSpeed(), wayPoints, currentWave.GetIsBoss());
     }
     #endregion
 }

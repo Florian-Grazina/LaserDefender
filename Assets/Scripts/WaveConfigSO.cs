@@ -11,6 +11,7 @@ public class WaveConfigSO : ScriptableObject
 
     [Space(10)]
     [Header("Enemy")]
+    [SerializeField] private bool isBoss = false;
     [SerializeField] private int waveSize = 5;
     [SerializeField] private GameObject enemyPrefabs;
     [SerializeField] private float moveSpeed = 5f;
@@ -41,6 +42,8 @@ public class WaveConfigSO : ScriptableObject
     public float GetMoveSpeed() => moveSpeed;
 
     public bool GetIsMirroredWave() => isMirroredWave;
+
+    public bool GetIsBoss() => isBoss;
     #endregion
 
     public float GetRandomSpawnTime()

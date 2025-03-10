@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 6733553414070638663, guid: a9864396ae262fd42a0e0657e6284aee, type: 3}
   isMirroredWave: 0
+  isBoss: 1
   waveSize: 1
-  enemyPrefabs: {fileID: 1272620473137717378, guid: 3222bc47a9f2b7743a659e1dde58d477, type: 3}
+  enemyPrefabs: {fileID: 2707871905368741601, guid: c803f1f41139f6e48a3c96069c413ee0, type: 3}
   moveSpeed: 3
   spawnInterval: 0.3
   spawnTimeVariance: 0

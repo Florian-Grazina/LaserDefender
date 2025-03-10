@@ -6,6 +6,7 @@ public class Pathfinder : MonoBehaviour
     private List<Vector2> waypoints;
     private int waypointIndex = 0;
     private float moveSpeed;
+    private bool isBoss;
 
     #region unity methods
     protected void Awake()
@@ -23,11 +24,12 @@ public class Pathfinder : MonoBehaviour
     #endregion
 
     #region pathfinder logic
-    public void SetPathFindingSettings(float speed, List<Vector2> listWayPoints)
+    public void SetPathFindingSettings(float speed, List<Vector2> listWayPoints, bool isBossBool)
     {
         moveSpeed = speed;
         waypoints = listWayPoints;
         transform.position = waypoints[0];
+        isBoss = isBossBool;
     }
 
     private void FollowPath()
@@ -41,6 +43,9 @@ public class Pathfinder : MonoBehaviour
             if (transform.position == targetPosition)
             {
                 waypointIndex++;
+
+                if (waypointIndex == waypoints.Count && isBoss)
+                    waypointIndex = 0;
             }
         }
         else
