@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8edb061bf20ef54783b79a87f1f5d29, type: 3}
+  m_Name: Path Boss Lazernator
+  m_EditorClassIdentifier: 
+  pathPrefab: {fileID: 6733553414070638663, guid: a9864396ae262fd42a0e0657e6284aee, type: 3}
+  isMirroredWave: 0
+  waveSize: 1
+  enemyPrefabs: {fileID: 1272620473137717378, guid: 3222bc47a9f2b7743a659e1dde58d477, type: 3}
+  moveSpeed: 3
+  spawnInterval: 0.3
+  spawnTimeVariance: 0
+  minimumSpawnTime: 0
