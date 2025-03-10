@@ -66,6 +66,8 @@ public class LazernatorShooter : MonoBehaviour
             timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
 
             yield return new WaitForSeconds(timeToWait);
+
+            Destroy(projectileMain);
         }
     }
     #endregion

@@ -261,9 +261,11 @@ MonoBehaviour:
   leftCanon: {fileID: 774225178780710273}
   rightCanon: {fileID: 7355222632503736806}
   mainCanon: {fileID: 4127504643760134685}
-  baseFiringRate: 0.5
+  baseFiringRate: 3
   minimumFiringRate: 0.05
   firingRateVariace: 0
+  laserGrowthSpeed: 20
+  maxLaserLength: 20
   IsFiring: 0
 --- !u!1 &4378274824041112916
 GameObject:
