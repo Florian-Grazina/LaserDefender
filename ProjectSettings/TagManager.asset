@@ -50,6 +50,9 @@ TagManager:
   - name: Player
     uniqueID: 1778981071
     locked: 0
+  - name: Projectile
+    uniqueID: 856361677
+    locked: 0
   - name: DamageFx
     uniqueID: 434903547
     locked: 0

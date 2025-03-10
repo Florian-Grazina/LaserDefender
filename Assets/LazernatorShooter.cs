@@ -11,7 +11,7 @@ public class LazernatorShooter : MonoBehaviour
 
     [Space(10)]
     [Header("Projectile Settings")]
-    [SerializeField] float baseFiringRate = 0.5f;
+    [SerializeField] float baseFiringRate = 2f;
     [SerializeField] float minimumFiringRate = 0.05f;
     [SerializeField] float firingRateVariace = 0f;
 
@@ -40,14 +40,14 @@ public class LazernatorShooter : MonoBehaviour
     {
         while (true)
         {
-            GameObject projectileLeft = Instantiate(projectilePrefab);
-            projectileLeft.transform.position = leftCanon.transform.position;
+            //GameObject projectileLeft = Instantiate(projectilePrefab);
+            //projectileLeft.transform.position = leftCanon.transform.position;
 
-            GameObject projectileRight = Instantiate(projectilePrefab);
-            projectileRight.transform.position = rightCanon.transform.position;
+            //GameObject projectileRight = Instantiate(projectilePrefab);
+            //projectileRight.transform.position = rightCanon.transform.position;
 
-            GameObject projectileMain = Instantiate(projectilePrefab);
-            projectileMain.transform.position = mainCanon.transform.position;
+            GameObject projectileMain = Instantiate(projectilePrefab, mainCanon.transform.position, Quaternion.Euler(0,0,180));
+            projectileMain.transform.SetParent(transform);
 
             float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
             timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);

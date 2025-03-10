@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3850758977319337199}
   - component: {fileID: 6978653995477306883}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 11_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1252158255
-  m_SortingLayer: 1
+  m_SortingLayerID: 856361677
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2966200626249415253, guid: 6b63b97507acceb4b9cb42ff2abd1f3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7290177651674633940}
   - component: {fileID: -149503495474240341}
   - component: {fileID: 6286321797645472702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectile_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
