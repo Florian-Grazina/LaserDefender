@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LazernatorShooter : MonoBehaviour
@@ -12,15 +13,47 @@ public class LazernatorShooter : MonoBehaviour
     [Header("Projectile Settings")]
     [SerializeField] float baseFiringRate = 0.5f;
     [SerializeField] float minimumFiringRate = 0.05f;
-
-    [Space(10)]
-    [Header("AI Settings")]
-    [SerializeField] bool useAI;
     [SerializeField] float firingRateVariace = 0f;
-    [SerializeField] float firingRange = 0f;
 
     private Coroutine firingCoroutine;
-    [HideInInspector] private int cannonIndex = 0;
     [HideInInspector] public bool IsFiring;
 
+    #region unity methods
+    protected void Start()
+    {
+        IsFiring = true;
+    }
+
+    protected void Update()
+    {
+        Fire();
+    }
+    #endregion
+
+    #region public methods
+    private void Fire()
+    {
+        firingCoroutine ??= StartCoroutine(FireContinuously());
+    }
+
+    private IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            GameObject projectileLeft = Instantiate(projectilePrefab);
+            projectileLeft.transform.position = leftCanon.transform.position;
+
+            GameObject projectileRight = Instantiate(projectilePrefab);
+            projectileRight.transform.position = rightCanon.transform.position;
+
+            GameObject projectileMain = Instantiate(projectilePrefab);
+            projectileMain.transform.position = mainCanon.transform.position;
+
+            float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
+            timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
+
+            yield return new WaitForSeconds(timeToWait);
+        }
+    }
+    #endregion
 }

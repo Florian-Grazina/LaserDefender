@@ -18,7 +18,6 @@ public class Shooter : MonoBehaviour
     [Header("AI Settings")]
     [SerializeField] bool useAI;
     [SerializeField] float firingRateVariace = 0f;
-    [SerializeField] float firingRange = 0f;
 
     private Coroutine firingCoroutine;
     [HideInInspector] private int cannonIndex = 0;
