@@ -11,9 +11,9 @@ public class LazernatorShooter : MonoBehaviour
 
     [Space(10)]
     [Header("Projectile Settings")]
-    [SerializeField] float baseFiringRate = 5f;
-    [SerializeField] float minimumFiringRate = 0.05f;
+    [SerializeField] float laserActiveTime = 2f;
     [SerializeField] float firingRateVariace = 0f;
+    [SerializeField] float laserCooldown = 2f;
 
     [Space(10)]
     [Header("Laser Settings")]
@@ -74,14 +74,13 @@ public class LazernatorShooter : MonoBehaviour
                 yield return null;
             }
 
-            float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
-            timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
-
-            yield return new WaitForSeconds(timeToWait);
-
             Destroy(projectileMain);
             Destroy(projectileLeft);
             Destroy(projectileRight);
+            yield return new WaitForSeconds(laserActiveTime);
+
+            float timeToWait = Random.Range(laserCooldown - firingRateVariace, laserCooldown + firingRateVariace);
+            yield return new WaitForSeconds(timeToWait);
         }
     }
     #endregion
