@@ -14,6 +14,10 @@ public class LazernatorShooter : MonoBehaviour
     [SerializeField] float baseFiringRate = 5f;
     [SerializeField] float minimumFiringRate = 0.05f;
     [SerializeField] float firingRateVariace = 0f;
+
+    [Space(10)]
+    [Header("Laser Settings")]
+    [SerializeField] float laserSize = 0.5f;
     [SerializeField] float laserGrowthSpeed = 10f;
     [SerializeField] float maxLaserLength = 5f;
 
@@ -42,23 +46,31 @@ public class LazernatorShooter : MonoBehaviour
     {
         while (true)
         {
-            //GameObject projectileLeft = Instantiate(projectilePrefab);
-            //projectileLeft.transform.position = leftCanon.transform.position;
-
-            //GameObject projectileRight = Instantiate(projectilePrefab);
-            //projectileRight.transform.position = rightCanon.transform.position;
-
-            GameObject projectileMain = Instantiate(projectilePrefab, mainCanon.transform.position, Quaternion.Euler(0,0,180));
+            GameObject projectileMain = Instantiate(projectilePrefab, mainCanon.transform.position, Quaternion.Euler(0, 0, 180));
             projectileMain.transform.SetParent(transform);
 
-            SpriteRenderer projectileSprite = projectileMain.GetComponentInChildren<SpriteRenderer>();
-            projectileSprite.size = new Vector2(1f, 0);
+            GameObject projectileLeft = Instantiate(projectilePrefab, leftCanon.transform.position, Quaternion.Euler(0, 0, 225));
+            projectileLeft.transform.SetParent(transform);
+
+            GameObject projectileRight = Instantiate(projectilePrefab, rightCanon.transform.position, Quaternion.Euler(0, 0, 135));
+            projectileRight.transform.SetParent(transform);
+
+            SpriteRenderer mainSprite = projectileMain.GetComponentInChildren<SpriteRenderer>();
+            mainSprite.size = new Vector2(laserSize * 2, 0);
+
+            SpriteRenderer leftSprite = projectileLeft.GetComponentInChildren<SpriteRenderer>();
+            leftSprite.size = new Vector2(laserSize, 0);
+
+            SpriteRenderer rightSprite = projectileRight.GetComponentInChildren<SpriteRenderer>();
+            rightSprite.size = new Vector2(laserSize, 0);
 
             float currentLength = 0f;
             while (currentLength < maxLaserLength)
             {
                 currentLength += laserGrowthSpeed * Time.deltaTime;
-                projectileSprite.size = new Vector2(1f, currentLength);
+                mainSprite.size = new Vector2(laserSize * 2, currentLength);
+                leftSprite.size = new Vector2(laserSize, currentLength);
+                rightSprite.size = new Vector2(laserSize, currentLength);
                 yield return null;
             }
 
@@ -68,6 +80,8 @@ public class LazernatorShooter : MonoBehaviour
             yield return new WaitForSeconds(timeToWait);
 
             Destroy(projectileMain);
+            Destroy(projectileLeft);
+            Destroy(projectileRight);
         }
     }
     #endregion
