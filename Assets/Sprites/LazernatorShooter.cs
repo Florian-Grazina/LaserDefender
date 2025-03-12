@@ -55,18 +55,17 @@ public class LazernatorShooter : MonoBehaviour
         while (true)
         {
             List<GameObject> projectiles = new(){
-                CreateLaser(mainCanon, laserSize * 1.5f),CreateLaser(leftCanon, laserSize), CreateLaser(rightCanon, laserSize)
+                CreateLaser(mainCanon, laserSize * 1.5f),
+                CreateLaser(leftCanon, laserSize),
+                CreateLaser(rightCanon, laserSize)
             };
 
-            StartCoroutine(AddLaserNoise(projectileMain.transform));
-            StartCoroutine(AddLaserNoise(projectileLeft.transform));
-            StartCoroutine(AddLaserNoise(projectileRight.transform));
-
-            yield return GrowLasers(new[] { projectileMain, projectileLeft, projectileRight });
+            //yield return AddLasersNoises(projectiles);
+            yield return GrowLasers(projectiles);
 
             yield return new WaitForSeconds(laserActiveTime);
 
-            DestroyLasers(new[] { projectileMain, projectileLeft, projectileRight });
+            projectiles.ForEach(Destroy);
 
             float timeToWait = Random.Range(laserCooldown - firingRateVariace, laserCooldown + firingRateVariace);
             yield return new WaitForSeconds(timeToWait);
@@ -85,20 +84,10 @@ public class LazernatorShooter : MonoBehaviour
         return projectile;
     }
 
-    private IEnumerator GrowLasers(GameObject[] lasers)
+    private IEnumerator AddLasersNoises(List<GameObject> projectiles)
     {
-        float currentLength = 0f;
-        SpriteRenderer[] sprites = lasers.Select(laser => laser.GetComponentInChildren<SpriteRenderer>()).ToArray();
-
-        while (currentLength < maxLaserLength)
-        {
-            currentLength += laserGrowthSpeed * Time.deltaTime;
-            foreach (var sprite in sprites)
-            {
-                sprite.size = new Vector2(sprite.size.x, currentLength);
-            }
-            yield return null;
-        }
+        foreach (var projectile in projectiles)
+            yield return StartCoroutine(AddLaserNoise(projectile.transform));
     }
 
     private IEnumerator AddLaserNoise(Transform laserTransform)
@@ -113,5 +102,21 @@ public class LazernatorShooter : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator GrowLasers(List<GameObject> lasers)
+    {
+        float currentLength = 0f;
+        SpriteRenderer[] sprites = lasers.Select(laser => laser.GetComponentInChildren<SpriteRenderer>()).ToArray();
+
+        while (currentLength < maxLaserLength)
+        {
+            currentLength += laserGrowthSpeed * Time.deltaTime;
+            foreach (var sprite in sprites)
+                sprite.size = new Vector2(sprite.size.x, currentLength);
+
+            yield return null;
+        }
+    }
+
     #endregion
 }
