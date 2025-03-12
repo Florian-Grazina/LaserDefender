@@ -1,4 +1,7 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LazernatorShooter : MonoBehaviour
@@ -20,6 +23,11 @@ public class LazernatorShooter : MonoBehaviour
     [SerializeField] float laserSize = 0.5f;
     [SerializeField] float laserGrowthSpeed = 10f;
     [SerializeField] float maxLaserLength = 5f;
+
+    [Space(10)]
+    [Header("Laser Noise Settings")]
+    [SerializeField] float noiseAmplitude = 0.2f;
+    [SerializeField] float noiseFrequency = 10f;
 
     private Coroutine firingCoroutine;
     [HideInInspector] public bool IsFiring;
@@ -46,41 +54,63 @@ public class LazernatorShooter : MonoBehaviour
     {
         while (true)
         {
-            GameObject projectileMain = Instantiate(projectilePrefab, mainCanon.transform.position, Quaternion.Euler(0, 0, 180));
-            projectileMain.transform.SetParent(transform);
+            List<GameObject> projectiles = new(){
+                CreateLaser(mainCanon, laserSize * 1.5f),CreateLaser(leftCanon, laserSize), CreateLaser(rightCanon, laserSize)
+            };
 
-            GameObject projectileLeft = Instantiate(projectilePrefab, leftCanon.transform.position, Quaternion.Euler(0, 0, 225));
-            projectileLeft.transform.SetParent(transform);
+            StartCoroutine(AddLaserNoise(projectileMain.transform));
+            StartCoroutine(AddLaserNoise(projectileLeft.transform));
+            StartCoroutine(AddLaserNoise(projectileRight.transform));
 
-            GameObject projectileRight = Instantiate(projectilePrefab, rightCanon.transform.position, Quaternion.Euler(0, 0, 135));
-            projectileRight.transform.SetParent(transform);
+            yield return GrowLasers(new[] { projectileMain, projectileLeft, projectileRight });
 
-            SpriteRenderer mainSprite = projectileMain.GetComponentInChildren<SpriteRenderer>();
-            mainSprite.size = new Vector2(laserSize * 2, 0);
-
-            SpriteRenderer leftSprite = projectileLeft.GetComponentInChildren<SpriteRenderer>();
-            leftSprite.size = new Vector2(laserSize, 0);
-
-            SpriteRenderer rightSprite = projectileRight.GetComponentInChildren<SpriteRenderer>();
-            rightSprite.size = new Vector2(laserSize, 0);
-
-            float currentLength = 0f;
-            while (currentLength < maxLaserLength)
-            {
-                currentLength += laserGrowthSpeed * Time.deltaTime;
-                mainSprite.size = new Vector2(laserSize * 2, currentLength);
-                leftSprite.size = new Vector2(laserSize, currentLength);
-                rightSprite.size = new Vector2(laserSize, currentLength);
-                yield return null;
-            }
-
-            Destroy(projectileMain);
-            Destroy(projectileLeft);
-            Destroy(projectileRight);
             yield return new WaitForSeconds(laserActiveTime);
+
+            DestroyLasers(new[] { projectileMain, projectileLeft, projectileRight });
 
             float timeToWait = Random.Range(laserCooldown - firingRateVariace, laserCooldown + firingRateVariace);
             yield return new WaitForSeconds(timeToWait);
+        }
+    }
+
+    private GameObject CreateLaser(Transform canon, float laserSize)
+    {
+        GameObject projectile = Instantiate(projectilePrefab, canon.position, Quaternion.identity);
+        projectile.transform.SetParent(canon);
+        projectile.transform.localRotation = Quaternion.identity;
+
+        SpriteRenderer sprite = projectile.GetComponentInChildren<SpriteRenderer>();
+        sprite.size = new Vector2(laserSize, 0);
+
+        return projectile;
+    }
+
+    private IEnumerator GrowLasers(GameObject[] lasers)
+    {
+        float currentLength = 0f;
+        SpriteRenderer[] sprites = lasers.Select(laser => laser.GetComponentInChildren<SpriteRenderer>()).ToArray();
+
+        while (currentLength < maxLaserLength)
+        {
+            currentLength += laserGrowthSpeed * Time.deltaTime;
+            foreach (var sprite in sprites)
+            {
+                sprite.size = new Vector2(sprite.size.x, currentLength);
+            }
+            yield return null;
+        }
+    }
+
+    private IEnumerator AddLaserNoise(Transform laserTransform)
+    {
+        Vector3 initialPosition = laserTransform.localPosition;
+
+        while (laserTransform != null)
+        {
+            float noise = Mathf.PerlinNoise(Time.time * noiseFrequency, 0f) * 2f - 1f;
+            laserTransform.localPosition = initialPosition + noise * noiseAmplitude * laserTransform.right;
+
+            yield return null;
         }
     }
     #endregion
