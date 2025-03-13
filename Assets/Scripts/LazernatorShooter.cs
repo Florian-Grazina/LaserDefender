@@ -55,7 +55,7 @@ public class LazernatorShooter : MonoBehaviour
         while (true)
         {
             List<GameObject> projectiles = new(){
-                CreateLaser(mainCanon, laserSize * 1.5f),
+                CreateLaser(mainCanon, laserSize ),
                 CreateLaser(leftCanon, laserSize),
                 CreateLaser(rightCanon, laserSize)
             };
@@ -87,9 +87,7 @@ public class LazernatorShooter : MonoBehaviour
     private void AddLasersNoises(List<GameObject> projectiles)
     {
         foreach (var projectile in projectiles)
-        {
             StartCoroutine(AddLaserNoise(projectile.transform));
-        }
     }
 
     private IEnumerator AddLaserNoise(Transform laserTransform)
@@ -109,12 +107,21 @@ public class LazernatorShooter : MonoBehaviour
     {
         float currentLength = 0f;
         SpriteRenderer[] sprites = lasers.Select(laser => laser.GetComponentInChildren<SpriteRenderer>()).ToArray();
+        BoxCollider2D[] colliders = lasers.Select(laser => laser.GetComponent<BoxCollider2D>()).ToArray();
 
         while (currentLength < maxLaserLength)
         {
             currentLength += laserGrowthSpeed * Time.deltaTime;
-            foreach (var sprite in sprites)
+
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                var sprite = sprites[i];
+                var collider = colliders[i];
+
                 sprite.size = new Vector2(sprite.size.x, currentLength);
+                collider.size = new Vector2(collider.size.x, currentLength);
+                //collider.offset = new Vector2(collider.offset.x, currentLength / 2f); // Center the collider on the growing laser
+            }
 
             yield return null;
         }

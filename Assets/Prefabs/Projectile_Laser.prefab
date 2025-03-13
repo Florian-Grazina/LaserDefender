@@ -96,8 +96,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7290177651674633940}
-  - component: {fileID: -149503495474240341}
   - component: {fileID: 6286321797645472702}
+  - component: {fileID: -149503495474240341}
   m_Layer: 6
   m_Name: Projectile_Laser
   m_TagString: Untagged
@@ -121,20 +121,6 @@ Transform:
   - {fileID: 3850758977319337199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-149503495474240341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541210594724353681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22bec2223ab582949adc6b39e097ee61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  maxBulletDistance: 10
 --- !u!70 &6286321797645472702
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,10 +151,24 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.0025646389, y: 0.44496512}
   m_Size: {x: 0.23327738, y: 0.88972044}
   m_Direction: 0
+--- !u!114 &-149503495474240341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541210594724353681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bec2223ab582949adc6b39e097ee61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  maxBulletDistance: 10
