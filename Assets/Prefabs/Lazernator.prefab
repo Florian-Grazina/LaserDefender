@@ -263,10 +263,12 @@ MonoBehaviour:
   mainCanon: {fileID: 4127504643760134685}
   laserActiveTime: 1.5
   firingRateVariace: 0
-  laserCooldown: 2
+  laserCooldown: 2.04
   laserSize: 0.5
-  laserGrowthSpeed: 20
-  maxLaserLength: 20
+  laserGrowthSpeed: 50
+  maxLaserLength: 15
+  noiseAmplitude: 0.2
+  noiseFrequency: 10
   IsFiring: 0
 --- !u!1 &4378274824041112916
 GameObject:
