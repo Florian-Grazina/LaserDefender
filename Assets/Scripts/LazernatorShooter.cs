@@ -60,7 +60,7 @@ public class LazernatorShooter : MonoBehaviour
                 CreateLaser(rightCanon, laserSize)
             };
 
-            //yield return AddLasersNoises(projectiles);
+            AddLasersNoises(projectiles);
             yield return GrowLasers(projectiles);
 
             yield return new WaitForSeconds(laserActiveTime);
@@ -84,10 +84,12 @@ public class LazernatorShooter : MonoBehaviour
         return projectile;
     }
 
-    private IEnumerator AddLasersNoises(List<GameObject> projectiles)
+    private void AddLasersNoises(List<GameObject> projectiles)
     {
         foreach (var projectile in projectiles)
-            yield return StartCoroutine(AddLaserNoise(projectile.transform));
+        {
+            StartCoroutine(AddLaserNoise(projectile.transform));
+        }
     }
 
     private IEnumerator AddLaserNoise(Transform laserTransform)
