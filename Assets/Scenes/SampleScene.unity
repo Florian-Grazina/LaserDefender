@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3480
   isUnkillable: 1
+  useCameraShake: 0
 --- !u!61 &417702197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -349,9 +350,9 @@ Transform:
   m_GameObject: {fileID: 484383627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7108066, y: 7.3634567, z: 0.08381344}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.7108066, y: 10, z: 0.08381344}
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1672203816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +368,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -492,6 +494,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34451aabf67c1cb4c994333734a4abd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
 --- !u!1 &540279053
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378f2b8a2e0e48409217d88138fbac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs: []
+  waveConfigs:
+  - {fileID: 11400000, guid: 04256203c10afc1429df65b20f3460ce, type: 2}
   timeBetweenWaves: 0
   isLooping: 0
 --- !u!4 &540279055
@@ -772,6 +789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3480
   isUnkillable: 1
+  useCameraShake: 0
 --- !u!1 &959391092
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3480
   isUnkillable: 1
+  useCameraShake: 0
 --- !u!61 &983174701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1082,6 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3480
   isUnkillable: 1
+  useCameraShake: 0
 --- !u!61 &2015302158
 BoxCollider2D:
   m_ObjectHideFlags: 0

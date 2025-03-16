@@ -5,6 +5,14 @@ public class Health : MonoBehaviour
     [SerializeField] private int health = 3;
     [SerializeField] private bool isUnkillable = false;
 
+    [SerializeField] private bool useCameraShake = false;
+    private CameraShake cameraShake;
+
+    protected void Awake()
+    {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
+
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out DamageDealer damageDealer))
@@ -15,6 +23,7 @@ public class Health : MonoBehaviour
                 return;
             }
 
+            ShakeCamera();
             damageDealer.Hit();
             TakeDamage(damageDealer.GetDamage());
         }
@@ -25,5 +34,11 @@ public class Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
             Destroy(gameObject);
+    }
+
+    private void ShakeCamera()
+    {
+        if (cameraShake != null && useCameraShake)
+            cameraShake.Shake();
     }
 }
