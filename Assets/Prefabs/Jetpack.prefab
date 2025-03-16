@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  isUnkillable: 0
+  useCameraShake: 0
 --- !u!114 &120480523372392867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,12 +130,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8245848992817406173, guid: 2594f4bfe83212840bfaffd70193274f, type: 3}
   listCannons: []
-  projectileSpeed: 10
-  projectileLifeTime: 5
+  projectileSpeed: 6
   baseFiringRate: 1
-  firingRateVariace: 0.5
   minimumFiringRate: 0.1
   useAI: 1
+  firingRateVariace: 0.5
   IsFiring: 0
 --- !u!114 &-8944569575880862132
 MonoBehaviour:
