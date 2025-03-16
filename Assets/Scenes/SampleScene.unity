@@ -279,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 484383629}
   - component: {fileID: 484383628}
+  - component: {fileID: 484383630}
   m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
@@ -309,7 +310,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 849ef35950ad0334d82f7e77824def6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -331,7 +332,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1955448553306655712, guid: e46cbb8f9e8e9ff458c4f1fa235d7139, type: 3}
-  m_Color: {r: 0.6301175, g: 0.7519663, b: 0.754717, a: 1}
+  m_Color: {r: 0.41509432, g: 0.13901745, b: 0.13901745, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -351,11 +352,24 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.7108066, y: 10, z: 0.08381344}
-  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
+  m_LocalScale: {x: 1.12, y: 1.1199999, z: 1.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1672203816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &484383630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484383627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6655281dd7ec27469d171b5bcb1d5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 0.15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
