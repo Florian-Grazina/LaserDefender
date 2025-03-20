@@ -13,19 +13,22 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float deathVolume = 1f;
     public void PlayShootingClip()
     {
-        if (shootingClip != null)
-            AudioSource.PlayClipAtPoint(shootingClip, Camera.main.transform.position, shootingVolume);
+        PlayClip(shootingClip, shootingVolume);
     }
 
     public void PlayDamageClip()
     {
-        if (damageClip != null)
-            AudioSource.PlayClipAtPoint(damageClip, Camera.main.transform.position, damageVolume);
+       PlayClip(damageClip, damageVolume);
     }
 
     public void PlayDeathClip()
     {
-        if (deathClip != null)
-            AudioSource.PlayClipAtPoint(deathClip, Camera.main.transform.position, deathVolume);
+       PlayClip(deathClip, deathVolume);
+    }
+
+    private void PlayClip(AudioClip clip, float volume)
+    {
+        if (clip != null)
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, volume);
     }
 }
