@@ -4,8 +4,8 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [Header("Transform Settings")]
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform[] listCannons;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform[] listCannons;
 
     [Space(10)]
     [Header("Projectile Settings")]
@@ -13,6 +13,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float baseFiringRate = 0.5f;
     [SerializeField] float minimumFiringRate = 0.05f;
+    [HideInInspector] private int cannonIndex = 0;
+    [HideInInspector] public bool IsFiring;
 
     [Space(10)]
     [Header("AI Settings")]
@@ -20,12 +22,13 @@ public class Shooter : MonoBehaviour
     [SerializeField] float firingRateVariace = 0f;
 
     private Coroutine firingCoroutine;
-    [HideInInspector] private int cannonIndex = 0;
-    [HideInInspector] public bool IsFiring;
+
+    private AudioPlayer audioPlayer;
 
     #region unity methods
     protected void Awake()
     {
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
         bulletPoolManager = GetComponent<BulletPoolManager>();
 
         if (listCannons.Length == 0)
@@ -73,6 +76,8 @@ public class Shooter : MonoBehaviour
 
             float timeToWait = Random.Range(baseFiringRate - firingRateVariace, baseFiringRate + firingRateVariace);
             timeToWait = Mathf.Clamp(timeToWait, minimumFiringRate, float.MaxValue);
+
+            audioPlayer.PlayShootingClip();
 
             yield return new WaitForSeconds(timeToWait);
         }

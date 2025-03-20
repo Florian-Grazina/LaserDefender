@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Shooting")]
+    [SerializeField] private AudioClip shootingClip;
+    [SerializeField][Range(0f, 1f)] private float shootingVolume = 1f;
 
-    // Update is called once per frame
-    void Update()
+    public void PlayShootingClip()
     {
-        
+        if (shootingClip != null)
+            AudioSource.PlayClipAtPoint(shootingClip, Camera.main.transform.position, shootingVolume);
     }
 }
