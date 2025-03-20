@@ -22,7 +22,6 @@ public class Shooter : MonoBehaviour
     [SerializeField] float firingRateVariace = 0f;
 
     private Coroutine firingCoroutine;
-
     private AudioPlayer audioPlayer;
 
     #region unity methods
