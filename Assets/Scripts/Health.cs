@@ -47,4 +47,6 @@ public class Health : MonoBehaviour
         if (cameraShake != null && useCameraShake)
             cameraShake.Shake();
     }
+
+    public int GetHealth() => health;
 }
