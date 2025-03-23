@@ -301,7 +301,9 @@ MonoBehaviour:
   shootingClip: {fileID: 8300000, guid: a26bf5178a6b2f748b5af9c3c6ffc694, type: 3}
   shootingVolume: 0.441
   damageClip: {fileID: 8300000, guid: e83c19368f8283646841653baf15b35a, type: 3}
-  damageVolume: 1
+  damageVolume: 0.572
+  deathClip: {fileID: 8300000, guid: 2fa8897ec986cd541ba6723df8c2763e, type: 3}
+  deathVolume: 0.577
 --- !u!4 &471342672
 Transform:
   m_ObjectHideFlags: 0
