@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int score = 0;
+
+    public int GetScore() => score;
+
+    public void AddScore(int amount)
     {
-        
+        score += amount;
+        Mathf.Clamp(score, 0, int.MaxValue);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void ResetScore() => score = 0;
 }

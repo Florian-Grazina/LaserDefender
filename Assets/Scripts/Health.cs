@@ -32,6 +32,8 @@ public class Health : MonoBehaviour
         }
     }
 
+    public int GetHealth() => health;
+
     private void TakeDamage(int damage)
     {
         health -= damage;
@@ -47,6 +49,4 @@ public class Health : MonoBehaviour
         if (cameraShake != null && useCameraShake)
             cameraShake.Shake();
     }
-
-    public int GetHealth() => health;
 }
