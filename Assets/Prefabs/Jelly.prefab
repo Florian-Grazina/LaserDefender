@@ -126,6 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  isUnkillable: 0
+  isPlayer: 0
+  score: 5
+  useCameraShake: 0
 --- !u!114 &9199608022986945607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  maxBulletDistance: 10
 --- !u!1 &3629862041160358566
 GameObject:
   m_ObjectHideFlags: 0

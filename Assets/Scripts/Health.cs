@@ -4,15 +4,20 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int health = 3;
     [SerializeField] private bool isUnkillable = false;
+    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private int score = 1;
 
     [SerializeField] private bool useCameraShake = false;
+
     private CameraShake cameraShake;
+    private ScoreKeeper scoreKeeper;
     private AudioPlayer audioPlayer;
 
     protected void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -39,9 +44,18 @@ public class Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            audioPlayer.PlayDeathClip();
-            Destroy(gameObject);
+            Die();
+            
         }
+    }
+
+    private void Die()
+    {
+        if (!isPlayer)
+            scoreKeeper.AddScore(score);
+
+        audioPlayer.PlayDeathClip();
+        Destroy(gameObject);
     }
 
     private void ShakeCamera()

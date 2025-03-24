@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private int score = 0;
+    private int score;
+
+    protected void Awake()
+    {
+        ResetScore();
+    }
 
     public int GetScore() => score;
 

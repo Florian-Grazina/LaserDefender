@@ -5027,6 +5027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   isUnkillable: 0
+  isPlayer: 1
+  score: 1
   useCameraShake: 1
 --- !u!114 &388566410945534780
 MonoBehaviour:
@@ -5047,9 +5049,9 @@ MonoBehaviour:
   projectileSpeed: 10
   baseFiringRate: 0.15
   minimumFiringRate: 0.1
+  IsFiring: 0
   useAI: 0
   firingRateVariace: 0
-  IsFiring: 0
 --- !u!114 &1540849547986714769
 MonoBehaviour:
   m_ObjectHideFlags: 0
